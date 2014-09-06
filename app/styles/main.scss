@@ -1,0 +1,91 @@
+$icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/";
+
+//== Colors
+$gray-darker:            lighten(#000, 13.5%) !default; // #222
+$gray-dark:              lighten(#000, 20%)   !default; // #333
+$gray:                   lighten(#000, 33.5%) !default; // #555
+$gray-light:             lighten(#000, 66.5%) !default; // #aaa
+$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
+
+$brand-primary:         #428bca !default;
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+
+$text-color: #dddddd;
+$link-color: $text-color;
+$link-hover-color: darken($link-color, 12%);
+
+$panel-bg:                    #131517;
+$panel-footer-bg:             #131517;
+$panel-default-heading-bg:    #131517;
+
+$panel-default-text:          $gray-light;
+$panel-default-border:        #ddd;
+$panel-default-heading-bg:    $panel-bg;
+
+$panel-primary-text:          #ffffff;
+$panel-primary-border:        $panel-bg;
+$panel-primary-heading-bg:    $panel-bg;
+
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+
+@import "components/_panel";
+
+html, body {
+    height: 100%;
+}
+
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @include gradient-vertical(#080808, #1A1D21);
+    color: $text-color;
+}
+
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.header {
+    // background-color: #020202;
+    border-bottom: 1px solid #e5e5e5;
+
+    /* Make the masthead heading the same height as the navigation */
+    h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 40px;
+        padding-bottom: 19px;
+    }
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
