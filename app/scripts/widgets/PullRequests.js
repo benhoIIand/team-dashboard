@@ -11,8 +11,6 @@ var github = new Github({
     auth: "oauth"
 });
 
-var user = github.getUser('hollandben');
-
 var removeWip = function(request) {
     return !(/\[wip\]/i).test(request.title);
 };
@@ -38,19 +36,19 @@ var PullRequests = React.createClass({
     },
 
     componentDidMount: function() {
-        var repo = github.getRepo('Flubit', this.props.name);
+        var repo = github.getRepo(this.props.org, this.props.name);
 
         // Get open requests
         repo.listPulls('open', function(err, pullrequests) {
             this.setState({
-                open: this.state.open.concat(pullrequests.filter(removeWip))
+                open: pullrequests.filter(removeWip)
             });
         }.bind(this));
 
         // Get closed requests
         repo.listPulls('closed', function(err, pullrequests) {
             this.setState({
-                closed: this.state.closed.concat(pullrequests)
+                closed: pullrequests
             });
         }.bind(this));
     },
@@ -83,7 +81,7 @@ var PullRequests = React.createClass({
                     }
                 </div>
                 <div className="pullrequests">
-                    <b>Recently Closedf</b>
+                    <b>Recently Closed</b>
                     {this.state.closed.sort(earliestFirst('closed_at')).slice(0, 5).map(renderPullRequest)}
                 </div>
             </div>

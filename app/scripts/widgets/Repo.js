@@ -6,6 +6,7 @@ var React = require('react');
 var Github = require('github-api');
 
 var Panel = require('./components/Panel');
+var Commits = require('./Commits');
 var PullRequests = require('./PullRequests');
 
 var github = new Github({
@@ -23,8 +24,8 @@ var Repo = React.createClass({
     },
 
     componentDidMount: function() {
-        var repo = github.getRepo('Flubit', this.props.name),
-            releases = github.getRepo('Flubit', this.props.name +'/tags');
+        var repo = github.getRepo(this.props.org, this.props.name),
+            releases = github.getRepo(this.props.org, this.props.name +'/tags');
 
         repo.show(function(err, project) {
             this.setState({
@@ -42,8 +43,9 @@ var Repo = React.createClass({
     render: function() {
         return (
             <div className={'col-md-'+ this.props.size}>
-                <Panel name={this.props.name} link={'https://github.com/Flubit' + this.props.name} meta={this.state.release}>
-                    <PullRequests name={this.props.name} />
+                <Panel name={this.props.name} link={'https://github.com/' + this.props.org +'/'+ this.props.name} meta={this.state.release}>
+                    <Commits org={this.props.org} name={this.props.name} />
+                    <PullRequests org={this.props.org} name={this.props.name} />
                 </Panel>
             </div>
         );

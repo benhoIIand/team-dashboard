@@ -18,9 +18,7 @@ var Dashboard = React.createClass({
     render: function() {
         return (
             <div className="row">
-                <Repo name="weflubit" size="4" />
-                <Repo name="mws" size="4" />
-                <Repo name="fws" size="4" />
+                <Repo org="hollandben" name="team-dashboard" size="3" />
             </div>
         );
     }
