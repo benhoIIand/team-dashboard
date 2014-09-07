@@ -4,6 +4,7 @@
 
 var React = require('react');
 var GithubContributors = require('./widgets/GithubContributors');
+var Projects = require('./widgets/Projects');
 
 var Dashboard = React.createClass({
     getInitialState: function() {
@@ -16,6 +17,7 @@ var Dashboard = React.createClass({
         return (
             <div className="row">
                 <GithubContributors size="4" />
+                <Projects size="4" />
             </div>
         );
     }

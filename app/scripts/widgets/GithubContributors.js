@@ -40,7 +40,7 @@ var GithubContributors = React.createClass({
 
         return (
             <div className={'col-md-'+ this.props.size}>
-                <Panel  name="Github Contributors">
+                <Panel name="Contributors">
                     <div>{this.state.contributors.map(createContributor)}</div>
                 </Panel>
             </div>
