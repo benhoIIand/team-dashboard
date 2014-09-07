@@ -41,9 +41,14 @@ var Repo = React.createClass({
     },
 
     render: function() {
+        var renderBuildLabel = function() {
+            return <span className="label label-success">Passing</span>
+            return // <span className="label label-danger">Failing</span>
+        };
+
         return (
             <div className={'col-md-'+ this.props.size}>
-                <Panel name={this.props.name} link={'https://github.com/' + this.props.org +'/'+ this.props.name} meta={this.state.release}>
+                <Panel name={this.props.name} link={'https://github.com/' + this.props.org +'/'+ this.props.name} meta={renderBuildLabel(this.props.name)}>
                     <div className="repo__version">
                         <b>Current Version:</b>
                         <h2>{this.state.release}</h2>
