@@ -44,6 +44,10 @@ var Repo = React.createClass({
         return (
             <div className={'col-md-'+ this.props.size}>
                 <Panel name={this.props.name} link={'https://github.com/' + this.props.org +'/'+ this.props.name} meta={this.state.release}>
+                    <div className="repo__version">
+                        <b>Current Version:</b>
+                        <h2>{this.state.release}</h2>
+                    </div>
                     <PullRequests org={this.props.org} name={this.props.name} />
                 </Panel>
             </div>

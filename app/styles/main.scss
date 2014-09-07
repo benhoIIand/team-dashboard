@@ -1,4 +1,4 @@
-$icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/";
+$icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 
 //== Colors
 $gray-light:             lighten(#000, 66.5%) !default; // #aaa
@@ -15,16 +15,18 @@ $panel-bg:                    #131517;
 $panel-footer-bg:             #131517;
 $panel-default-heading-bg:    #131517;
 
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_mixins";
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_variables";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
 
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize";
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_scaffolding";
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_grid";
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_media";
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_navs";
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_type";
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_utilities";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/normalize";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/scaffolding";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/grid";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/glyphicons";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/labels";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/media";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/navs";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/type";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/utilities";
 
 @import "components/_panel";
 @import "components/_pullrequests";
@@ -40,6 +42,13 @@ body {
     @include gradient-vertical(#080808, #1A1D21);
     color: $text-color;
     font-size: 16px;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+    margin-top: $line-height-computed / 2;
+    margin-bottom: ($line-height-computed / 2);
 }
 
 .header {
@@ -80,7 +89,21 @@ body {
     float: right;
 }
 
+.repo__version {
+    margin-bottom: $padding-large-vertical * 2;
+}
+
 .avatar {
     width: 40px;
     height: 40px;
+}
+
+::-moz-selection {
+    color: #ffffff;
+    background-color: $component-active-bg;
+}
+
+::selection {
+    color: #ffffff;
+    background-color: $component-active-bg;
 }
