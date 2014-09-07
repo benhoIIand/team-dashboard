@@ -4,7 +4,7 @@
 
 var React = require('react');
 
-var Project = require('./widgets/Project');
+var Repo = require('./widgets/Repo');
 var PullRequests = require('./widgets/PullRequests');
 var GithubContributors = require('./widgets/GithubContributors');
 
@@ -18,9 +18,9 @@ var Dashboard = React.createClass({
     render: function() {
         return (
             <div className="row">
-                <Project name="weflubit" size="4" />
-                <Project name="mws" size="4" />
-                <Project name="fws" size="4" />
+                <Repo name="weflubit" size="4" />
+                <Repo name="mws" size="4" />
+                <Repo name="fws" size="4" />
             </div>
         );
     }

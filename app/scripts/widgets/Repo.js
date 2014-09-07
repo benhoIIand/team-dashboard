@@ -13,7 +13,7 @@ var github = new Github({
     auth: "oauth"
 });
 
-var Project = React.createClass({
+var Repo = React.createClass({
 
     getInitialState: function() {
         return {
@@ -51,4 +51,4 @@ var Project = React.createClass({
 
 });
 
-module.exports = Project;
+module.exports = Repo;
