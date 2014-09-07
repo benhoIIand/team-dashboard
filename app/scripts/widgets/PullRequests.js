@@ -80,7 +80,7 @@ var PullRequests = React.createClass({
                         : this.state.open.sort(earliestFirst('created_at')).map(renderPullRequest)
                     }
                 </div>
-                <div className="pullrequests">
+                <div className="pullrequests closed">
                     <b>Recently Closed</b>
                     {this.state.closed.sort(earliestFirst('closed_at')).slice(0, 5).map(renderPullRequest)}
                 </div>

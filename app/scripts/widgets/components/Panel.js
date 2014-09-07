@@ -10,8 +10,8 @@ var Panel = React.createClass({
         return (
             <div className="panel panel-default">
                 <div className="panel-heading">
-                    <a href={this.props.link}>{this.props.name}</a>
-                    <span className="panel__meta">{this.props.meta}</span>
+                    <b><a href={this.props.link}>{this.props.name}</a></b>
+                    <b><span className="panel__meta">{this.props.meta}</span></b>
                 </div>
                 <div className="panel-body">{this.props.children}</div>
             </div>

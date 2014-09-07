@@ -39,23 +39,31 @@ html, body {
 
 /* Space out content a bit */
 body {
-    padding: 10px 0;
+    padding: 95px 0 10px 0;
     @include gradient-vertical(#080808, #1A1D21);
     color: $text-color;
     font-size: 16px;
 }
 
 .header {
-    // background-color: #020202;
-    border-bottom: 1px solid #e5e5e5;
-    margin-bottom: 30px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background-color: #131517;
+    padding: 15px;
+    border-bottom: 1px solid #1B1B1B;
+    border-top: solid 1px #1F2225;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    z-index: 1;
 
-    /* Make the masthead heading the same height as the navigation */
+
     h3 {
+        padding-top: 10px;
         margin-top: 0;
         margin-bottom: 0;
-        line-height: 40px;
-        padding-bottom: 19px;
+        color: $gray-light;
     }
 }
 
@@ -63,55 +71,16 @@ body {
     margin: 30px 0;
 }
 
+.panel-heading {
+    color: $component-active-bg;
+
+    a {
+        color: inherit;
+    }
+}
+
 .panel__meta {
     float: right;
-}
-
-.release {
-    padding-bottom: $padding-large-vertical * 2;
-    border-bottom: solid 1px rgba(0, 0, 0, 0.8);
-    margin-bottom: $padding-large-vertical * 2;
-    box-shadow: 0 1px #1F2225;
-
-    &:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-        margin-bottom: 0;
-        box-shadow: none;
-    }
-}
-
-.release__project {}
-
-.release__number {
-    margin: 0;
-    font-weight: 700;
-}
-
-.pullrequests {
-    padding-bottom: $padding-large-vertical * 2;
-    border-bottom: solid 1px rgba(0, 0, 0, 0.8);
-    margin-bottom: $padding-large-vertical * 2;
-    box-shadow: 0 1px #1F2225;
-
-    &:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-        margin-bottom: 0;
-        box-shadow: none;
-    }
-}
-
-.pullrequest__title {
-    margin: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.pullrequest__time {
-    color: $gray;
-    font-size: $font-size-small;
 }
 
 .avatar {
