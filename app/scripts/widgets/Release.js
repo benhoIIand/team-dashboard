@@ -22,14 +22,17 @@ var Release = React.createClass({
     componentDidMount: function() {
         github.getRepo('hollandben', this.props.name +'/releases').show(function(err, releases) {
             this.setState({
-                tag_name: releases[0] ? releases[0].tag_name : ''
+                tag_name: releases[0] ? releases[0].tag_name : '1.2.0'
             });
         }.bind(this));
     },
 
     render: function() {
         return (
-            <h4>{this.props.name} - {this.state.tag_name}</h4>
+            <div className="release">
+                <h4 className="release__project">{this.props.name}</h4>
+                <h1 className="release__number">{this.state.tag_name}</h1>
+            </div>
         );
     }
 

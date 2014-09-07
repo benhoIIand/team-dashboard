@@ -4,7 +4,7 @@
 
 var React = require('react');
 var Panel = require('./components/Panel');
-var GithubUser = require('./GithubUser')
+var GithubUser = require('./GithubUser');
 
 var Github = require('github-api');
 

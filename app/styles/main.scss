@@ -34,27 +34,21 @@ $panel-primary-heading-bg:    $panel-bg;
 @import "components/_panel";
 
 html, body {
-    height: 100%;
+    min-height: 100%;
 }
 
 /* Space out content a bit */
 body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 10px 0;
     @include gradient-vertical(#080808, #1A1D21);
     color: $text-color;
-}
-
-.header,
-.marketing,
-.footer {
-    padding-left: 15px;
-    padding-right: 15px;
+    font-size: 16px;
 }
 
 .header {
     // background-color: #020202;
     border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 30px;
 
     /* Make the masthead heading the same height as the navigation */
     h3 {
@@ -69,23 +63,58 @@ body {
     margin: 30px 0;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
+.panel__meta {
+    float: right;
+}
 
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
+.release {
+    padding-bottom: $padding-large-vertical * 2;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.8);
+    margin-bottom: $padding-large-vertical * 2;
+    box-shadow: 0 1px #1F2225;
 
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        box-shadow: none;
     }
+}
+
+.release__project {}
+
+.release__number {
+    margin: 0;
+    font-weight: 700;
+}
+
+.pullrequests {
+    padding-bottom: $padding-large-vertical * 2;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.8);
+    margin-bottom: $padding-large-vertical * 2;
+    box-shadow: 0 1px #1F2225;
+
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        box-shadow: none;
+    }
+}
+
+.pullrequest__title {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pullrequest__time {
+    color: $gray;
+    font-size: $font-size-small;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
 }

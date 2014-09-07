@@ -3,8 +3,10 @@
  */
 
 var React = require('react');
+
+var Project = require('./widgets/Project');
+var PullRequests = require('./widgets/PullRequests');
 var GithubContributors = require('./widgets/GithubContributors');
-var Projects = require('./widgets/Projects');
 
 var Dashboard = React.createClass({
     getInitialState: function() {
@@ -16,8 +18,9 @@ var Dashboard = React.createClass({
     render: function() {
         return (
             <div className="row">
-                <GithubContributors size="4" />
-                <Projects size="4" />
+                <Project name="weflubit" size="4" />
+                <Project name="mws" size="4" />
+                <Project name="fws" size="4" />
             </div>
         );
     }
