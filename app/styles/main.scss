@@ -1,37 +1,34 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/";
 
 //== Colors
-$gray-darker:            lighten(#000, 13.5%) !default; // #222
-$gray-dark:              lighten(#000, 20%)   !default; // #333
-$gray:                   lighten(#000, 33.5%) !default; // #555
 $gray-light:             lighten(#000, 66.5%) !default; // #aaa
-$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
-
-$brand-primary:         #428bca !default;
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
 
 $text-color: #dddddd;
 $link-color: $text-color;
-$link-hover-color: darken($link-color, 12%);
+$link-hover-color: #ffffff;
+
+$component-active-bg: #BB8A30;
+$nav-link-hover-bg: #BB8A30;
+$nav-pills-active-link-hover-bg: #BB8A30;
 
 $panel-bg:                    #131517;
 $panel-footer-bg:             #131517;
 $panel-default-heading-bg:    #131517;
 
-$panel-default-text:          $gray-light;
-$panel-default-border:        #ddd;
-$panel-default-heading-bg:    $panel-bg;
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_mixins";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_variables";
 
-$panel-primary-text:          #ffffff;
-$panel-primary-border:        $panel-bg;
-$panel-primary-heading-bg:    $panel-bg;
-
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_scaffolding";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_grid";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_media";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_navs";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_type";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_utilities";
 
 @import "components/_panel";
+@import "components/_pullrequests";
+@import "components/_release";
 
 html, body {
     min-height: 100%;

@@ -1,0 +1,20 @@
+.release {
+    padding-bottom: $padding-large-vertical * 2;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.8);
+    margin-bottom: $padding-large-vertical * 2;
+    box-shadow: 0 1px #1F2225;
+
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        box-shadow: none;
+    }
+}
+
+.release__project {}
+
+.release__number {
+    margin: 0;
+    font-weight: 700;
+}
