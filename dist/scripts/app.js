@@ -23,7 +23,7 @@ var Dashboard = React.createClass({displayName: 'Dashboard',
                 Repo({org: "Flubit", name: "weflubit", size: "3"}), 
                 Repo({org: "Flubit", name: "mws", size: "3"}), 
                 Repo({org: "Flubit", name: "fws", size: "3"}), 
-                Repo({org: "hollandben", name: "team-dashboard", size: "3"})
+                Repo({org: "Flubit", name: "capi", size: "3"})
             )
         );
     }
@@ -32,7 +32,7 @@ var Dashboard = React.createClass({displayName: 'Dashboard',
 
 React.renderComponent(Dashboard(null), document.getElementById('dashboard'));
 
-}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_4211220.js","/")
+}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_efb60703.js","/")
 },{"./widgets/GithubContributors":3,"./widgets/PullRequests":5,"./widgets/Repo":6,"buffer":12,"oMfpAn":15,"react":151}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
@@ -320,7 +320,8 @@ var Repo = React.createClass({displayName: 'Repo',
 
     componentDidMount: function() {
         var repo = github.getRepo(this.props.org, this.props.name),
-            releases = github.getRepo(this.props.org, this.props.name +'/tags');
+            tagsPage1 = github.getRepo(this.props.org, this.props.name +'/tags?per_page=100&page=1'),
+            tagsPage2 = github.getRepo(this.props.org, this.props.name +'/tags?per_page=100&page=2');
 
         repo.show(function(err, project) {
             this.setState({
@@ -328,17 +329,54 @@ var Repo = React.createClass({displayName: 'Repo',
             });
         }.bind(this));
 
-        releases.show(function(err, releases) {
-            this.setState({
-                release: releases[0] ? releases[0].name.replace(/v/ig, '') : ''
-            });
+        var toInt = function(val) {
+            return parseInt(val, 10);
+        };
+
+        var sortByVersion = function(a, b) {
+            var aReleases = a.split('.').map(toInt),
+                bReleases = b.split('.').map(toInt);
+
+            // Sort by major
+            if(aReleases[0] !== bReleases[0]) {
+                return bReleases[0] - aReleases[0];
+            }
+
+            // Sort by minor
+            if(aReleases[1] !== bReleases[1]) {
+                return bReleases[1] - aReleases[1];
+            }
+
+            // Sort by hotfix
+            if(aReleases[2] !== bReleases[2]) {
+                return bReleases[2] - aReleases[2];
+            }
+
+            return 0;
+        };
+
+        tagsPage1.show(function(err, page1Tags) {
+            tagsPage2.show(function(err, page2Tags) {
+
+                var sortedTags = page1Tags.concat(page2Tags)
+                    .filter(function(obj) {
+                        return !(/[a-z]/i).test(obj.name);
+                    })
+                    .map(function(obj) {
+                        return obj.name;
+                    })
+                    .sort(sortByVersion);
+
+                this.setState({
+                    release: sortedTags[0] ? sortedTags[0] : ''
+                });
+            }.bind(this));
         }.bind(this));
     },
 
     render: function() {
         var renderBuildLabel = function() {
             return React.DOM.span({className: "label label-success"}, "Passing")
-            return // <span className="label label-danger">Failing</span>
         };
 
         return (

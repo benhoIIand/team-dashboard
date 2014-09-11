@@ -21,7 +21,7 @@ var Dashboard = React.createClass({
                 <Repo org="Flubit" name="weflubit" size="3" />
                 <Repo org="Flubit" name="mws" size="3" />
                 <Repo org="Flubit" name="fws" size="3" />
-                <Repo org="hollandben" name="team-dashboard" size="3" />
+                <Repo org="Flubit" name="capi" size="3" />
             </div>
         );
     }

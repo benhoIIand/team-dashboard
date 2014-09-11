@@ -107,6 +107,7 @@ figure {
 }
 
 hr {
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -178,6 +179,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="search"] {
   -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 
@@ -216,11 +219,15 @@ th {
 }
 
 * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 *:before,
 *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -285,6 +292,8 @@ img {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: inline-block;
   width: 100% \9;
@@ -2737,6 +2746,7 @@ address {
   margin-bottom: 20px;
   background-color: #131517;
   border-top: solid 1px #1F2225;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   color: #aaaaaa;
 }
@@ -2983,6 +2993,8 @@ html, body {
 /* Space out content a bit */
 body {
   padding: 95px 0 10px 0;
+  background-image: -webkit-linear-gradient(top, #080808 0%, #1A1D21 100%);
+  background-image: -o-linear-gradient(top, #080808 0%, #1A1D21 100%);
   background-image: linear-gradient(to bottom, #080808 0%, #1A1D21 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF080808', endColorstr='#FF1A1D21', GradientType=0);
@@ -3055,3 +3067,5 @@ h3, .h3 {
   color: #ffffff;
   background-color: #BB8A30;
 }
+
+/*# sourceMappingURL=main.scss.map */
