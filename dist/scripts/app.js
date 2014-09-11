@@ -32,7 +32,7 @@ var Dashboard = React.createClass({displayName: 'Dashboard',
 
 React.renderComponent(Dashboard(null), document.getElementById('dashboard'));
 
-}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_beb736e7.js","/")
+}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_e29f33a2.js","/")
 },{"./widgets/GithubContributors":3,"./widgets/PullRequests":5,"./widgets/Repo":6,"buffer":12,"oMfpAn":15,"react":151}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**
@@ -252,20 +252,22 @@ var PullRequests = React.createClass({displayName: 'PullRequests',
     },
 
     render: function() {
-        var renderPullRequest = function(request) {
-            return (
-                React.DOM.div({className: "media"}, 
-                    React.DOM.a({className: "pull-left"}, 
-                        React.DOM.img({className: "media-object avatar", src: request.user.avatar_url + '&s=40'})
-                    ), 
-                    React.DOM.div({className: "media-body"}, 
-                        React.DOM.p({className: "media-heading pullrequest__title"}, 
-                            React.DOM.a({href: request.html_url}, request.title)
+        var renderPullRequest = function(dateToDisplay) {
+            return function(request) {
+                return (
+                    React.DOM.div({className: "media"}, 
+                        React.DOM.a({className: "pull-left"}, 
+                            React.DOM.img({className: "media-object avatar", src: request.user.avatar_url + '&s=40'})
                         ), 
-                        React.DOM.time({className: "pullrequest__time"}, moment(request.created_at).fromNow())
+                        React.DOM.div({className: "media-body"}, 
+                            React.DOM.p({className: "media-heading pullrequest__title"}, 
+                                React.DOM.a({href: request.html_url}, request.title)
+                            ), 
+                            React.DOM.time({className: "pullrequest__time"}, moment(request[dateToDisplay]).fromNow())
+                        )
                     )
-                )
-            );
+                );
+            };
         };
 
         return (
@@ -275,12 +277,12 @@ var PullRequests = React.createClass({displayName: 'PullRequests',
                     
                         this.state.open.length === 0
                         ? React.DOM.p(null, "None. Clearly people arent working hard enough")
-                        : this.state.open.sort(earliestFirst('created_at')).map(renderPullRequest)
+                        : this.state.open.sort(earliestFirst('updated_at')).map(renderPullRequest('created_at'))
                     
                 ), 
                 React.DOM.div({className: "pullrequests closed"}, 
                     React.DOM.b(null, "Recently Closed"), 
-                    this.state.closed.sort(earliestFirst('closed_at')).slice(0, 5).map(renderPullRequest)
+                    this.state.closed.sort(earliestFirst('closed_at')).slice(0, 5).map(renderPullRequest('closed_at'))
                 )
             )
         );

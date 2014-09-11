@@ -2943,9 +2943,6 @@ address {
   margin-bottom: 20px;
   box-shadow: 0 1px #1F2225;
 }
-.pullrequests.closed {
-  opacity: .75;
-}
 .pullrequests:last-child {
   border-bottom: none;
   padding-bottom: 0;

@@ -54,20 +54,22 @@ var PullRequests = React.createClass({
     },
 
     render: function() {
-        var renderPullRequest = function(request) {
-            return (
-                <div className="media">
-                    <a className="pull-left">
-                        <img className="media-object avatar" src={request.user.avatar_url + '&s=40'} />
-                    </a>
-                    <div className="media-body">
-                        <p className="media-heading pullrequest__title">
-                            <a href={request.html_url}>{request.title}</a>
-                        </p>
-                        <time className="pullrequest__time">{moment(request.created_at).fromNow()}</time>
+        var renderPullRequest = function(dateToDisplay) {
+            return function(request) {
+                return (
+                    <div className="media">
+                        <a className="pull-left">
+                            <img className="media-object avatar" src={request.user.avatar_url + '&s=40'} />
+                        </a>
+                        <div className="media-body">
+                            <p className="media-heading pullrequest__title">
+                                <a href={request.html_url}>{request.title}</a>
+                            </p>
+                            <time className="pullrequest__time">{moment(request[dateToDisplay]).fromNow()}</time>
+                        </div>
                     </div>
-                </div>
-            );
+                );
+            };
         };
 
         return (
@@ -77,12 +79,12 @@ var PullRequests = React.createClass({
                     {
                         this.state.open.length === 0
                         ? <p>None. Clearly people arent working hard enough</p>
-                        : this.state.open.sort(earliestFirst('created_at')).map(renderPullRequest)
+                        : this.state.open.sort(earliestFirst('updated_at')).map(renderPullRequest('updated_at'))
                     }
                 </div>
                 <div className="pullrequests closed">
                     <b>Recently Closed</b>
-                    {this.state.closed.sort(earliestFirst('closed_at')).slice(0, 5).map(renderPullRequest)}
+                    {this.state.closed.sort(earliestFirst('closed_at')).slice(0, 5).map(renderPullRequest('closed_at'))}
                 </div>
             </div>
         );

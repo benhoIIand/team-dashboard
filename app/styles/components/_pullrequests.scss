@@ -4,10 +4,6 @@
     margin-bottom: $padding-large-vertical * 2;
     box-shadow: 0 1px #1F2225;
 
-    &.closed {
-        opacity: .75;
-    }
-
     &:last-child {
         border-bottom: none;
         padding-bottom: 0;
