@@ -13,7 +13,6 @@ gulp.task('styles', function() {
             precision: 10,
             loadPath: ['app/bower_components']
         }))
-        .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('dist/styles'))
         .pipe($.size())
         .pipe($.connect.reload());
@@ -94,7 +93,8 @@ gulp.task('bundle', ['styles', 'scripts', 'bower'], function() {
 });
 
 // Build
-gulp.task('build', ['html', 'bundle', 'images']);
+gulp.task('build', ['html', 'bundle']);
+// gulp.task('build', ['html', 'bundle', 'images']);
 
 // Default task
 gulp.task('default', ['clean'], function() {
