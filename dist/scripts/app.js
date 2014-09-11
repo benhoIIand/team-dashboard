@@ -32,7 +32,7 @@ var Dashboard = React.createClass({displayName: 'Dashboard',
 
 React.renderComponent(Dashboard(null), document.getElementById('dashboard'));
 
-}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_efb60703.js","/")
+}).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_beb736e7.js","/")
 },{"./widgets/GithubContributors":3,"./widgets/PullRequests":5,"./widgets/Repo":6,"buffer":12,"oMfpAn":15,"react":151}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 /**

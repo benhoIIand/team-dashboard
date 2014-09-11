@@ -2944,7 +2944,7 @@ address {
   box-shadow: 0 1px #1F2225;
 }
 .pullrequests.closed {
-  opacity: .6;
+  opacity: .75;
 }
 .pullrequests:last-child {
   border-bottom: none;
