@@ -3,7 +3,7 @@ var express  = require('express');
 var app = express();
 
 app.configure(function() {
-    app.set('port', parseInt(process.env.PORT, 10) || 3000);
+    app.set('port', parseInt(process.env.PORT, 10) || 5000);
     app.use(express.methodOverride());
     app.use(express.cookieParser());
     app.use(express.bodyParser());
