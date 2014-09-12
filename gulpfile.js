@@ -18,21 +18,6 @@ gulp.task('styles', function() {
         .pipe($.connect.reload());
 });
 
-// CoffeeScript
-gulp.task('coffee', function() {
-    return gulp.src(
-            ['app/scripts/**/*.coffee', '!app/scripts/**/*.js'], {
-                base: 'app/scripts'
-            }
-        )
-        .pipe(
-            $.coffee({
-                bare: true
-            }).on('error', $.util.log)
-        )
-        .pipe(gulp.dest('app/scripts'));
-});
-
 // Scripts
 gulp.task('scripts', function() {
     return gulp.src('app/scripts/app.js')
@@ -44,15 +29,6 @@ gulp.task('scripts', function() {
         .pipe($.size())
         .pipe($.connect.reload());
 });
-
-gulp.task('jade', function() {
-    return gulp.src('app/template/*.jade')
-        .pipe($.jade({
-            pretty: true
-        }))
-        .pipe(gulp.dest('dist'))
-        .pipe($.connect.reload());
-})
 
 // HTML
 gulp.task('html', function() {
@@ -114,21 +90,10 @@ gulp.task('bower', function() {
         base: 'app/bower_components'
     })
     .pipe(gulp.dest('dist/bower_components/'));
-
-});
-
-gulp.task('json', function() {
-    gulp.src('app/scripts/json/**/*.json', {
-        base: 'app/scripts'
-    })
-        .pipe(gulp.dest('dist/scripts/'));
 });
 
 // Watch
 gulp.task('watch', ['html', 'bundle', 'connect'], function() {
-
-    // Watch .json files
-    gulp.watch('app/scripts/**/*.json', ['json']);
 
     // Watch .html files
     gulp.watch('app/*.html', ['html']);

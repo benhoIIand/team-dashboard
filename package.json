@@ -2,7 +2,10 @@
   "name": "github-dashboard",
   "version": "0.0.0",
   "private": true,
-  "devDependencies": {
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
     "github-api": "git://github.com/michael/github.git",
     "gulp": "~3.5.0",
     "gulp-load-plugins": "~0.3.0",
@@ -14,17 +17,11 @@
     "gulp-size": "~0.1.2",
     "gulp-ruby-sass": "~0.3.0",
     "gulp-connect": "~1.0.0",
-    "gulp-jade": "~0.4.2",
     "gulp-useref": "~0.4.4",
     "gulp-browserify": "~0.4.6",
     "moment": "~2.8.3",
     "reactify": "~0.10.0",
-    "react": "^0.10.0"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "dependencies": {
+    "react": "^0.10.0",
     "express": "^3.17.1"
   }
 }
