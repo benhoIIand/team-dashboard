@@ -2,6 +2,7 @@
  * @jsx React.DOM
  */
 
+var xhr = require('xhr');
 var React = require('react');
 var Github = require('github-api');
 
@@ -19,7 +20,8 @@ var Repo = React.createClass({
     getInitialState: function() {
         return {
             project: {},
-            release: ''
+            release: '',
+            builds: []
         }
     },
 
@@ -77,12 +79,30 @@ var Repo = React.createClass({
                 });
             }.bind(this));
         }.bind(this));
+
+        xhr({
+            uri: '/jenkins',
+        }, function (err, resp, body) {
+            this.setState({
+                builds: JSON.parse(body).jobs
+            });
+        }.bind(this));
     },
 
     render: function() {
-        var renderBuildLabel = function() {
-            return <span className="label label-success">Passing</span>
-        };
+        var renderBuildLabel = function(name) {
+            var status = this.state.builds.filter(function(build) {
+                return name.toLowerCase() === build.name.toLowerCase();
+            }).map(function(build) {
+                return build.color === 'red' ? 'failing' : 'passing';
+            })[0];
+
+            return (
+                status === 'passing'
+                ? <span className="label label-success">Passing</span>
+                : <span className="label label-danger">Failing</span>
+            );
+        }.bind(this);
 
         return (
             <div className={'col-md-'+ this.props.size}>
