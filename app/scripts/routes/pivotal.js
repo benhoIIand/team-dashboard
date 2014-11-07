@@ -18,11 +18,16 @@ module.exports = React.createClass({
     getInitialState: function() {
         return {
             filter: '',
+            isLoading: false,
             tickets: []
         };
     },
 
     getTickets: function() {
+        this.setState({
+            isLoading: true
+        });
+
         var query = '?filter='+ this.state.filter +'&limit=100';
 
         xhr({
@@ -32,6 +37,7 @@ module.exports = React.createClass({
             }
         }, function (err, resp, body) {
             this.setState({
+                isLoading: false,
                 tickets: JSON.parse(body)
             });
         }.bind(this));
@@ -44,6 +50,8 @@ module.exports = React.createClass({
     },
 
     render: function() {
+        var loader = <div></div>;
+
         var extractLabel = function(obj) {
             return obj.name;
         };
@@ -63,6 +71,14 @@ module.exports = React.createClass({
             );
         });
 
+        if(this.state.isLoading) {
+            loader = (
+                <div className="loader">
+                    <img src="/images/loader.gif" />
+                </div>
+            );
+        }
+
         return (
             <div>
                 <div className="row no-print tickets-search">
@@ -72,6 +88,9 @@ module.exports = React.createClass({
                             <button className="btn btn-primary" onClick={this.getTickets}>Find tickets</button>
                         </span>
                     </div>
+                </div>
+                <div className="loader">
+                    { loader }
                 </div>
                 <div className="row">
                     { tickets }

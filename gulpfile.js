@@ -65,8 +65,7 @@ gulp.task('bundle', ['styles', 'scripts', 'bower'], function() {
 });
 
 // Build
-gulp.task('build', ['html', 'bundle']);
-// gulp.task('build', ['html', 'bundle', 'images']);
+gulp.task('build', ['html', 'bundle', 'images']);
 
 // Default task
 gulp.task('default', ['clean'], function() {

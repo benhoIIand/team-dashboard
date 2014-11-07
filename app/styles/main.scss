@@ -134,6 +134,12 @@ h3, .h3 {
     background-color: $component-active-bg;
 }
 
+.loader {
+    width: 100%;
+    padding: 40px 0;
+    text-align: center;
+}
+
 
 @media print {
     @page {
