@@ -23,7 +23,7 @@ module.exports = React.createClass({
     },
 
     getTickets: function() {
-        var query = '?filter=labels:'+ this.state.label +'&limit=10';
+        var query = '?filter=labels:'+ this.state.label +'&limit=100';
 
         xhr({
             uri: apiUrl + query,
