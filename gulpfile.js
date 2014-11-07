@@ -33,7 +33,6 @@ gulp.task('scripts', function() {
 // HTML
 gulp.task('html', function() {
     return gulp.src('app/*.html')
-        .pipe($.useref())
         .pipe(gulp.dest('dist'))
         .pipe($.size())
         .pipe($.connect.reload());
@@ -62,9 +61,6 @@ gulp.task('clean', function() {
 // Bundle
 gulp.task('bundle', ['styles', 'scripts', 'bower'], function() {
     return gulp.src('./app/*.html')
-        .pipe($.useref.assets())
-        .pipe($.useref.restore())
-        .pipe($.useref())
         .pipe(gulp.dest('dist'));
 });
 
@@ -78,11 +74,13 @@ gulp.task('default', ['clean'], function() {
 });
 
 // Connect
-gulp.task('connect', $.connect.server({
-    root: ['dist'],
-    port: 9000,
-    livereload: true
-}));
+gulp.task('connect', function() {
+    $.connect.server({
+        root: ['dist'],
+        port: 9000,
+        livereload: true
+    });
+});
 
 // Bower helper
 gulp.task('bower', function() {
