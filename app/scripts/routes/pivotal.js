@@ -37,10 +37,6 @@ module.exports = React.createClass({
         }.bind(this));
     },
 
-    componentDidMount: function() {
-        this.getTickets();
-    },
-
     render: function() {
         var extractLabel = function(obj) {
             return obj.name;
