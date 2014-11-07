@@ -1,0 +1,49 @@
+.ticket {
+    position: relative;
+    height: 300px;
+    background-color: #FFFFFF;
+    padding: 15px 15px 45px 15px;
+    border: 6px solid;
+    margin-bottom: 30px;
+    overflow: hidden;
+
+    color: #333;
+    font-size: 100%;
+
+    @media print {
+        height: 248px;
+        padding: 10px 10px 5px 10px;
+    }
+}
+.ticket--bug {
+    border-color: red;
+}
+.ticket--feature {
+    border-color: green;
+}
+.ticket__title {
+    margin-top: 0;
+    font-size: 130%;
+    line-height: 1.3;
+}
+.ticket__labels {
+    font-size: 80%;
+}
+.ticket__description {
+    max-height: 138px;
+    margin: 10px 0;
+    overflow: hidden;
+    font-size: 90%;
+    white-space: pre-wrap;
+}
+.ticket__footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #FFFFFF;
+    padding: 0 10px 10px 10px;
+}
+.tickets-search {
+    margin-bottom: 24px;
+}

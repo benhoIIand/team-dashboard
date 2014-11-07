@@ -32,9 +32,10 @@ $panel-default-heading-bg:    #131517;
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/utilities";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap/print";
 
-@import "components/_panel";
-@import "components/_pullrequests";
-@import "components/_release";
+@import "components/panel";
+@import "components/pullrequests";
+@import "components/release";
+@import "components/tickets";
 
 html, body {
     min-height: 100%;
@@ -134,51 +135,6 @@ h3, .h3 {
 }
 
 
-.ticket {
-    position: relative;
-    height: 300px;
-    background-color: #FFFFFF;
-    padding: 15px 15px 45px 15px;
-    border: 6px solid;
-    margin-bottom: 24px;
-    overflow: hidden;
-
-    color: #333;
-    font-size: 100%;
-}
-.ticket--bug {
-    border-color: red;
-}
-.ticket--feature {
-    border-color: green;
-}
-.ticket__title {
-    margin-top: 0;
-    font-size: 130%;
-    line-height: 1.3;
-}
-.ticket__labels {
-    font-size: 80%;
-}
-.ticket__description {
-    max-height: 138px;
-    margin: 10px 0;
-    overflow: hidden;
-    font-size: 90%;
-    white-space: pre-wrap;
-}
-.ticket__footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 15px;
-}
-.tickets-search {
-    margin-bottom: 24px;
-}
-
-
 @media print {
     @page {
         size: A4;
@@ -195,10 +151,5 @@ h3, .h3 {
     .header,
     .no-print {
         display: none;
-    }
-
-    .ticket {
-        height: 255px;
-        padding: 10px 10px 5px 10px;
     }
 }

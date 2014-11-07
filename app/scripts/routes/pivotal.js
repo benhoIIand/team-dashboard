@@ -17,13 +17,13 @@ module.exports = React.createClass({
 
     getInitialState: function() {
         return {
-            label: '',
+            filter: '',
             tickets: []
         };
     },
 
     getTickets: function() {
-        var query = '?filter=labels:'+ this.state.label +'&limit=100';
+        var query = '?filter='+ this.state.filter +'&limit=100';
 
         xhr({
             uri: apiUrl + query,
@@ -35,6 +35,12 @@ module.exports = React.createClass({
                 tickets: JSON.parse(body)
             });
         }.bind(this));
+    },
+
+    checkForReturn: function(e) {
+        if(e.keyCode === 13) {
+            this.getTickets();
+        }
     },
 
     render: function() {
@@ -61,7 +67,7 @@ module.exports = React.createClass({
             <div>
                 <div className="row no-print tickets-search">
                     <div className="input-group col-md-3 col-centered">
-                        <input className="form-control" type="text" placeholder="Label" valueLink={this.linkState('label')} />
+                        <input className="form-control" type="text" placeholder="Filter" valueLink={this.linkState('filter')} onKeyUp={this.checkForReturn} />
                         <span className="input-group-btn">
                             <button className="btn btn-primary" onClick={this.getTickets}>Find tickets</button>
                         </span>
